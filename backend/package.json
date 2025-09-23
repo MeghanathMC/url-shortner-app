@@ -1,0 +1,31 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "this project is a shorten the  given url project built with mern,typescript",
+  "license": "ISC",
+  "author": "MeghanathMC",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon",
+    "start": "npx tsc && node ./dist/server.js",
+    "build": "npx tsc"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.1",
+    "nanoid": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/mongoose": "^5.11.96",
+    "@types/node": "^24.5.2",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
