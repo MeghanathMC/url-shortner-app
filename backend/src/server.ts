@@ -12,7 +12,7 @@ app.use(cors(
   {
         origin: [
           "http://localhost:5173",
-        "https://url-shortner-app-pearl.vercel.app/",
+        "https://url-shortner-app-pearl.vercel.app",
         ],
         credentials:true
     }
