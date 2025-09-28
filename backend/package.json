@@ -8,7 +8,9 @@
   "scripts": {
     "dev": "nodemon",
     "start": "npx tsc && node ./dist/server.js",
-    "build": "npx tsc"
+    "build": "npx tsc",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
@@ -18,9 +20,7 @@
     "mongodb": "^6.20.0",
     "mongoose": "^8.18.2",
     "nanoid": "^3.0.0",
-    "nodemon": "^3.1.10",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
+    "nodemon": "^3.1.10"
   },
   "dependencies": {
     "cors": "^2.8.5",
