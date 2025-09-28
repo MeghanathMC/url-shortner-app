@@ -2,21 +2,25 @@ import React, {useState} from "react";
 import { ServerURL } from "../../helpers/Constants";
 import axios from "axios";
 
-const FormContainer = () => {
+interface FormProps {
+  updateReloadState: () => void;
+}
+const FormContainer:React.FunctionComponent<FormProps> = (props)=> {
+    const {updateReloadState}= props;
     const [fullURL,setFullURL] = useState<string>("");
 
-
-    const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) =>{
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault();
         try{
-
-            await axios.post(`${ServerURL}/`)
-
+            await axios.post(`${ServerURL}/shortUrl`,{
+                fullUrl: fullURL
+            });
+            setFullURL("");
+            updateReloadState();
         }
         catch(error){
             console.log(error);
         }
-
     }
  
     return (
@@ -34,13 +38,12 @@ const FormContainer = () => {
           </p>
        
 
-        <form action="" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="flex mx-auto py-4">
             <div className="relative w-full flex ">
               <span className="absolute inset-y-0 left-0 pointer-events-none flex ps-3 font-medium font-gray items-center justify-center ">stackloop.link /</span>
               <input type="text" value={fullURL} onChange={(e)=>setFullURL(e.target.value)} className="block w-full pl-36 pr-24 ps-32 text-gray-900 text-sm rounded-full shadow-md bg-white focus:ring-2 focus:ring-blue-400 border border-gray-300" placeholder="paste your link here" required/>
                 <button type="submit" className=" text-md font-bold text-center p-2  mx-4 border-2 rounded-full text-white bg-blue-500 hover:bg-blue-700 pointer-events-auto ">Shorten</button>
-            
             </div>
           </div>
         </form>

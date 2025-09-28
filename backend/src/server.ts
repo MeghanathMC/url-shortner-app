@@ -8,13 +8,14 @@ const app = express();
 dotenv.config(); //to fetch values from .env file
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(
-    cors({
+app.use(cors(
+  {
         origin:"http://localhost:5173",
         credentials:true
-    })
-)
+    }
+));
 connectDB();
+
 
 
 app.use("/api",shortUrl);

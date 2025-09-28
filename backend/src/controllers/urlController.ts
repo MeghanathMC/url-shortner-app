@@ -23,12 +23,9 @@ export const createShortUrl = async (req: Request, res: Response) => {
 
 export const getAllUrls = async (req: Request, res: Response) => {
   try {
-    const allShortUrls = await shortUrlModel.find();
-
-    if (!allShortUrls.length) {
-      return res.status(404).json({ message: "No URLs found" });
-    }
-
+    const allShortUrls = await shortUrlModel.find().sort({
+      createdAt: -1
+    });
     return res.status(200).json(allShortUrls);
   } catch (error) {
     return res.status(500).json({ message: "Failed to fetch all URLs!" });
@@ -61,9 +58,14 @@ export const getShortUrl = async (req: Request, res: Response) => {
 
 export const deleteUrl = async (req: Request, res: Response) => {
     try{
-       const urlToBeDeleted =  await shortUrlModel.findByIdAndDelete({_id : req.params.id});
+       const urlToBeDeleted =  await shortUrlModel.findByIdAndDelete(req.params.id);
        if(urlToBeDeleted){
-    res.sendStatus(204);
+     return res.sendStatus(204);
+       }
+       else{
+        return res.status(404).json({
+            message:"URL not found"
+        })
        }
     }
     catch(error){
