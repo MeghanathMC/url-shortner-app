@@ -92,30 +92,17 @@ const FormTable: React.FunctionComponent<TableDataProps> = (props) => {
   };
 
   return (
-    <div className="container mx-auto pt-2 pb-10">
+    <div className="container mx-auto pt-2 pb-10 px-2 sm:px-4">
       <div className="relative overflow-x-auto shadow-sm sm:rounded-lg">
-        <table className="w-full table-fixed text-sm text-left rtl:text-right text-gray-700">
-          <thead className="bg-gray-600 text-gray-50 text-md font-semibold uppercase py-4">
+        <table className="min-w-[600px] w-full table-fixed text-xs sm:text-sm text-left rtl:text-right text-gray-700">
+          <thead className="bg-gray-600 text-gray-50 text-xs sm:text-md font-semibold uppercase py-2 sm:py-4">
             <tr>
-              <th scope="col" className="px-6 py-3 w-6/12">
-                {" "}
-                Full URL
-              </th>
-              <th scope="col" className="px-6 py-3 w-3/12">
-                {" "}
-                Short URL
-              </th>
-              <th scope="col" className="px-6 py-3">
-                {" "}
-                Clicks
-              </th>
-              <th scope="col" className="px-6 py-3">
-                {" "}
-                Action
-              </th>
+              <th scope="col" className="px-2 sm:px-6 py-2 sm:py-3 w-6/12">Full URL</th>
+              <th scope="col" className="px-2 sm:px-6 py-2 sm:py-3 w-3/12">Short URL</th>
+              <th scope="col" className="px-2 sm:px-6 py-2 sm:py-3">Clicks</th>
+              <th scope="col" className="px-2 sm:px-6 py-2 sm:py-3">Action</th>
             </tr>
           </thead>
-
           <tbody>{tableRenderedData()}</tbody>
         </table>
       </div>

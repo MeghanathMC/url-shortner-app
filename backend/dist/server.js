@@ -13,7 +13,10 @@ dotenv_1.default.config(); //to fetch values from .env file
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use((0, cors_1.default)({
-    origin: "http://localhost:5173",
+    origin: [
+        "http://localhost:5173",
+        "https://url-shortner-app-pearl.vercel.app",
+    ],
     credentials: true
 }));
 (0, dbConfig_1.default)();
